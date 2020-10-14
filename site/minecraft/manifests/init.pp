@@ -1,10 +1,10 @@
 class minecraft {
   $url = 'https://launcher.mojang.com/v1/objects/f02f4473dbf152c23d7d484952121db0b36698cb/server.jar'
   $install_dir = '/opt/minecraft'
-  file {$install_dir:
+  file { $install_dir:
     ensure => directory,
   }
-  file {"${install_dir}/minecraft_server.jar":
+  file { "${install_dir}/minecraft_server.jar":
     ensure => file,
     source => $url,
     before => Service['minecraft'],
